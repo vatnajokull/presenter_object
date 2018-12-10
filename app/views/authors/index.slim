@@ -1,0 +1,17 @@
+h1= 'List of authors'
+
+table.authors-table
+  tr
+    th= 'Bestseller'
+    th= 'Author name'
+    th= 'Life period'
+    th= 'Biography'
+    th= 'Image'
+  - @authors.each do |author|
+    tr
+      td = author.bestseller_badge if author.bestseller?
+      td = author.full_name
+      td = author.formatted_period_of_life
+      td = author.short_biography
+      td
+        img src=(author.main_photo_url) alt=(author.full_name)
